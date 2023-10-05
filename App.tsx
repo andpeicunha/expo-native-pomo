@@ -1,18 +1,11 @@
-import { styled } from 'nativewind';
 import React from 'react';
-import { Text, View } from 'react-native';
 
-const StyledView = styled(View);
-const StyledText = styled(Text);
+import { config, GluestackUIProvider, Text } from '@gluestack-ui/themed';
 
-function App() {
+export default function App() {
   return (
-    <StyledView className="flex bg-[#fff] items-center justify-center">
-      <StyledText className="text-red-600 text-4xl text-center p-5">
-        T ypeScript and Tailwind CSS
-      </StyledText>
-    </StyledView>
+    <GluestackUIProvider config={config.theme}>
+      <Text>Hello World!</Text>
+    </GluestackUIProvider>
   );
 }
-
-export default App;
