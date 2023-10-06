@@ -1,19 +1,20 @@
+import { styled, StyledProvider } from '@gluestack-style/react';
 import React from 'react';
+import { View } from 'react-native';
+import { config } from './gluestack-style.config';
+import Container from './src/components/container';
 
-import { Center, config, GluestackUIProvider, Heading, Text } from '@gluestack-ui/themed';
+const Header = styled(View, {
+  backgroundColor: 'blue',
+  flex: 0.3,
+});
 
-export default function App() {
+const App = () => {
   return (
-    <GluestackUIProvider config={config.theme}>
-      <Center bg="$red50" h={'100%'} w={'100%'}>
-        {/* <Header label="Focus" /> */}
-        <Heading color="$red900" size={'5xl'} fontSize={'$5xl'}>
-          25
-        </Heading>
-        <Text color="$red900" fontSize={'$2xl'}>
-          00
-        </Text>
-      </Center>
-    </GluestackUIProvider>
+    <StyledProvider config={config}>
+      <Container />
+    </StyledProvider>
   );
-}
+};
+
+export default App;

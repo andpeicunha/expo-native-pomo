@@ -1,25 +1,22 @@
-import React from 'react';
+import { styled } from '@gluestack-style/react';
+import React, { ReactNode } from 'react';
 
-import { Box, Center, Text } from '@gluestack-ui/themed';
-import { BrainCircuit } from 'lucide-react-native';
+import { Text, View } from 'react-native';
 
-import * as T from './type';
+const Box = styled(View, {
+  bg: '$primary-red-900',
+  flex: 1,
+  alignContent: 'center',
+  justifyContent: 'center',
+  alignItems: 'center',
+});
 
-export default function Header({ ...props }: T.HeaderProps) {
-  const { label } = props;
-
+const Header = ({ children }: { children: ReactNode }) => {
   return (
-    <Center>
-      <Box bg="$red100" rounded={'$full'}>
-        <Text
-          paddingHorizontal={'$5'}
-          paddingVertical={'$2'}
-          alignContent="center"
-          alignItems="center"
-        >
-          <BrainCircuit /> {label}
-        </Text>
-      </Box>
-    </Center>
+    <Box>
+      <Text>{children}</Text>
+    </Box>
   );
-}
+};
+
+export default Header;
